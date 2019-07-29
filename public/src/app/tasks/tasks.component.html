@@ -1,0 +1,28 @@
+<body>
+    <div class="row justify-content-start">
+        <div class="col-2">
+            <h1>TodoiTs</h1> 
+        </div>
+        <div class="col-2">
+            <button class="btn btn-outline-success" [routerLink]="['/tasks', 'todoit', 'new']">Create a TodoiT</button>
+        </div>
+    </div>
+    <div *ngFor = "let todoit of todoits" >
+        <div class="allTasks">
+            <div class="row justify-content-between">
+                <div class="col-2">
+                    <h2>{{todoit.title}}</h2>
+                </div>
+                <div class="col-5">
+                    <a class="col-1" [routerLink]="['/tasks', 'task', 'add', todoit._id]">Add Task</a> 
+                    <a class="col-3" href="">Edit</a>
+                </div>
+            </div>
+            <div *ngFor = "let task of todoit.tasks ">
+
+                <input type="checkbox" name="task" id=""> {{ task.task }}
+            </div>
+        </div>  
+    </div>
+   
+</body>

@@ -1,0 +1,22 @@
+<body>
+    
+    <h1>Create a TodoiT</h1>
+    <form (submit)="addTask()">
+        <!-- <p class="small text-danger" >{{ err?.task?.message }}</p> -->
+        <p>TodoiT: </p>
+        <input type="text" name="newTask.title" [(ngModel)]="newTask.title">
+
+        <p>Task:</p>
+        <input type="text" name="newTask.task" [(ngModel)]="newTask.task">
+
+        <p>TodoiT By: </p>
+        <input type="date" name="newTask.date" [(ngModel)]="newTask.date">
+
+        <p>Details: </p>
+        <input type="text" name="newTask.details" [(ngModel)]="newTask.details">
+                
+        <button class="btn btn-dark" type="submit">Create TodoiT</button>
+
+    </form>
+
+</body>

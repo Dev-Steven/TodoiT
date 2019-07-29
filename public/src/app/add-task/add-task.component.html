@@ -1,0 +1,16 @@
+<body>
+    <h1>Add a task</h1>
+    <form (submit)="addTask()">
+        <p>Task:</p>
+        <input  type="text" name="newTask.task" [(ngModel)]="newTask.task">
+
+        <p>TodoiT by: </p>
+        <input type="date" name="newTask.date" [(ngModel)]="newTask.date">
+
+        <p>Details: </p>
+        <textarea name="newTask.details" [(ngModel)]="newTask.details" cols="20" rows="5" ></textarea>
+
+        <button class="btn btn-dark" type="submit">Add Task</button>
+
+    </form>
+</body>
