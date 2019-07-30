@@ -61,6 +61,36 @@ module.exports = {
                 res.json({message: "success", data})
             }
         })
-    }
+    },
+
+    deleteTodo: (req, res) => {
+        console.log('In todos');
+        Todo.findByIdAndDelete( (req.params.id), (err, data) => {
+            if(err) {
+                console.log('Error in deleting');
+                res.json({message: "error", error: err});
+            }
+            else {
+                console.log('Data: ', data);
+                res.json({message: "success", delete: data});
+            }
+        });
+    },
+
+    deleteTask: function(req,res){
+        Todo.findById(req.params.id, function(err, todo) {
+            console.log('todo: ', todo)
+            var destroy = todo.tasks.pull(req.body.task_id)
+            console.log(destroy);
+            todo.save(function (err) {
+                if(err){
+                    console.log("error: ", err)
+                }
+                else {
+                    console.log("success!")
+                }
+            })
+        })
+    },
 
 }

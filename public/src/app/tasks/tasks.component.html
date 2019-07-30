@@ -10,17 +10,23 @@
     <div *ngFor = "let todoit of todoits" >
         <div class="allTasks">
             <div class="row justify-content-between">
-                <div class="col-2">
+                <div class="col-5">
                     <h2>{{todoit.title}}</h2>
                 </div>
-                <div class="col-5">
-                    <a class="col-1" [routerLink]="['/tasks', 'task', 'add', todoit._id]">Add Task</a> 
-                    <a class="col-3" href="">Edit</a>
+                <div class="col-7 row justify-content-end">
+                    <a class="col-4" [routerLink]="['/tasks', 'task', 'add', todoit._id]">Add</a> 
+                    <a class="col-4" href="">Edit</a>
+                    <a class="col-4" href="" (click)="deleteTodoit(todoit._id)"><img src="https://image.flaticon.com/icons/svg/39/39220.svg" alt="trash"></a>
                 </div>
             </div>
-            <div *ngFor = "let task of todoit.tasks ">
-
-                <input type="checkbox" name="task" id=""> {{ task.task }}
+            <div class="row justify-content-between" *ngFor = "let task of todoit.tasks ">
+                <div class="col-4">
+                    <input type="checkbox" name="task" id=""> {{ task.task }}
+                </div>
+                <!-- <p>todoit: {{todoit._id}} task: {{ task._id }}</p> -->
+                <div class="col-8">
+                    <a class="col-7" href="" (click)="deleteTask(todoit._id, task._id)">Delete</a>
+                </div>
             </div>
         </div>  
     </div>

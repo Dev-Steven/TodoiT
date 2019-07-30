@@ -23,4 +23,15 @@ export class HttpService {
     return this._http.post(`/task/add/${id}`, newTask);
   }
 
+  deleteTodo(id) {
+    console.log('In service');
+    return this._http.delete(`/todo/delete/${id}`);
+  }
+
+  deleteTask(todoit_id, task_id) {
+    console.log('In service');
+    console.log(`todoit id: ${todoit_id} and task_id ${task_id}`)
+    return this._http.post(`/task/delete/${todoit_id}`, task_id);
+  }
+
 }

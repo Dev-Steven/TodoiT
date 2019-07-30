@@ -15,6 +15,7 @@ export class TasksComponent implements OnInit {
     private _router: Router
   ) { }
 
+  id: any;
   todoits: any = {};
 
   ngOnInit() {
@@ -27,6 +28,22 @@ export class TasksComponent implements OnInit {
       console.log('all tasks: ', data)
       this.todoits = data;
       
+    });
+  }
+
+  deleteTodoit(todoit_id) {
+    let observable = this._httpService.deleteTodo(todoit_id);
+    observable.subscribe(data => {
+      console.log('deleted todoit: ', data);
+      this._router.navigate(['/tasks']);
+    });
+  }
+
+  deleteTask(todoit_id, task_id) {
+    let observable = this._httpService.deleteTask(todoit_id, {task_id: task_id});
+    observable.subscribe(data => {
+      console.log('deleted task: ', data);
+      this._router.navigate(['/tasks']);
     })
   }
 
